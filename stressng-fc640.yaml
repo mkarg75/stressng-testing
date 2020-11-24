@@ -1,0 +1,24 @@
+apiVersion: ripsaw.cloudbulldozer.io/v1alpha1
+kind: Benchmark
+metadata:
+  name: stressng
+  namespace: my-ripsaw
+spec:
+  metadata:
+    collection: false
+  workload:
+    name: "stressng"
+    args:
+      # general options
+      runtype: "parallel"
+      timeout: "900s"
+      instances: 64
+      #nodeselector: stressng:true
+      # cpu stressor options
+      cpu_stressors: "1"
+      cpu_percentage: "100"
+      # vm stressor option
+      vm_stressors: "2"
+      vm_bytes: "1024M"
+      # mem stressor options
+      mem_stressors: "600"
